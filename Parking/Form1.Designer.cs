@@ -40,10 +40,10 @@
             this.CarLeavesBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lvParkId = new System.Windows.Forms.ListView();
-            this.ParkId = new System.Windows.Forms.TextBox();
-            this.btnParkId = new System.Windows.Forms.Button();
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Floor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ParkId = new System.Windows.Forms.TextBox();
+            this.btnParkId = new System.Windows.Forms.Button();
             this.btnFill = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
@@ -114,18 +114,18 @@
             // 
             this.carId.Location = new System.Drawing.Point(42, 102);
             this.carId.Name = "carId";
-            this.carId.Size = new System.Drawing.Size(100, 20);
+            this.carId.Size = new System.Drawing.Size(129, 20);
             this.carId.TabIndex = 10;
-            this.carId.Text = "Enter Car ID";
+            this.carId.Text = "Enter Car\'s Plate Number";
             this.carId.Click += new System.EventHandler(this.emptyText);
             // 
             // CarLeavesBox
             // 
             this.CarLeavesBox.Location = new System.Drawing.Point(42, 155);
             this.CarLeavesBox.Name = "CarLeavesBox";
-            this.CarLeavesBox.Size = new System.Drawing.Size(100, 20);
+            this.CarLeavesBox.Size = new System.Drawing.Size(129, 20);
             this.CarLeavesBox.TabIndex = 11;
-            this.CarLeavesBox.Text = "Enter Car ID";
+            this.CarLeavesBox.Text = "Enter Car\'s Plate Number";
             this.CarLeavesBox.Click += new System.EventHandler(this.emptyText);
             // 
             // label1
@@ -145,29 +145,10 @@
             this.Floor});
             this.lvParkId.Location = new System.Drawing.Point(339, 119);
             this.lvParkId.Name = "lvParkId";
-            this.lvParkId.Size = new System.Drawing.Size(112, 56);
+            this.lvParkId.Size = new System.Drawing.Size(121, 56);
             this.lvParkId.TabIndex = 13;
             this.lvParkId.UseCompatibleStateImageBehavior = false;
             this.lvParkId.View = System.Windows.Forms.View.Details;
-            // 
-            // ParkId
-            // 
-            this.ParkId.Location = new System.Drawing.Point(339, 99);
-            this.ParkId.Name = "ParkId";
-            this.ParkId.Size = new System.Drawing.Size(112, 20);
-            this.ParkId.TabIndex = 15;
-            this.ParkId.Text = "Enter Parking ID";
-            this.ParkId.Click += new System.EventHandler(this.emptyText);
-            // 
-            // btnParkId
-            // 
-            this.btnParkId.Location = new System.Drawing.Point(339, 175);
-            this.btnParkId.Name = "btnParkId";
-            this.btnParkId.Size = new System.Drawing.Size(112, 21);
-            this.btnParkId.TabIndex = 14;
-            this.btnParkId.Text = "Check Status";
-            this.btnParkId.UseVisualStyleBackColor = true;
-            this.btnParkId.Click += new System.EventHandler(this.btnParkId_Click);
             // 
             // Status
             // 
@@ -178,6 +159,25 @@
             // 
             this.Floor.Text = "Floor";
             this.Floor.Width = 40;
+            // 
+            // ParkId
+            // 
+            this.ParkId.Location = new System.Drawing.Point(339, 99);
+            this.ParkId.Name = "ParkId";
+            this.ParkId.Size = new System.Drawing.Size(121, 20);
+            this.ParkId.TabIndex = 15;
+            this.ParkId.Text = "Enter Parking ID (1-100)";
+            this.ParkId.Click += new System.EventHandler(this.emptyText);
+            // 
+            // btnParkId
+            // 
+            this.btnParkId.Location = new System.Drawing.Point(339, 175);
+            this.btnParkId.Name = "btnParkId";
+            this.btnParkId.Size = new System.Drawing.Size(121, 21);
+            this.btnParkId.TabIndex = 14;
+            this.btnParkId.Text = "Check Status";
+            this.btnParkId.UseVisualStyleBackColor = true;
+            this.btnParkId.Click += new System.EventHandler(this.btnParkId_Click);
             // 
             // btnFill
             // 
