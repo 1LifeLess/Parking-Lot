@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Parking.exe" version="1.0.0.0" publicKeyToken="5b507667a3f663d7" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Parking" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Parking.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dapper.dll" size="173056">
+      <assemblyIdentity name="Dapper" version="1.50.5.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>RPMA2cNRJCB71fKQ63RiGQdRUpTBLFYD4qjOqAOnk0g=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Parking.exe" size="27136">
+      <assemblyIdentity name="Parking" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JOeX6yP2uz/QUYRkr0/ibCG0aWziFzh9sWgBsL6wSq8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.dll" size="357376">
+      <assemblyIdentity name="System.Data.SQLite" version="1.0.109.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ppk3h6p0SyizjMse5wngrPs/+c8zuSfeToLbXv0XeMU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Parking.exe.config" size="352">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ARfDbTHCdVMPwh2kxOSqz/G70Br/69XBAEI3zP8sY2U=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ParkingLot.db" size="36864">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>bgb5GhPU6RRxxjIhZQ3eixPb2IPdvoH2wTUyd+Kp8/4=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=TOMER-PC\Tomer" issuerKeyHash="6bce6575f38b43c05de7414f5b2ffc756d3a0f0a" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>34vVjPm+PiS1AIG0r0GqmuD/TYW8OT2gdWnJrqSIG6Y=</DigestValue></Reference></SignedInfo><SignatureValue>Gw3wML6mtEO+/LRJqqyH6kmHPdn8FlPGykfnKCT/PUF502nLHBd73WlePiVV7gpFn0tgPzzClHDRqXwyDzqg95KEdgI97QLeEY0pOc7wz5xEV4oTwJ93hYmVRM58uPpVHGJb0wvvaum13AtRwPdTqA2fcTgFe4W/jz5SqAU991g=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>soNKhoNpEhq8alpjgQmZCuTqS+ijhr/+0uCdxYptfpMPMi2Nst8sNAgJlkEWNeuwyzbD7nLu8QBveMyJyQeFWbDUPVO7VF+4sFGobKlpfpOCcOQdF992DmLguJmOXiRRlAwaV8h/3h8WI25FN9we26wnmUXMHF4G24T1YUQ56ME=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a61b88a4aec96975a03d39bc854dffe09aaa41afb48100b5243ebef98cd58bdf" Description="" Url=""><as:assemblyIdentity name="Parking.exe" version="1.0.0.0" publicKeyToken="5b507667a3f663d7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=TOMER-PC\Tomer</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>DuocI1h1nnnxSblKiTYqDcN+UlMs3opASyBuax2Zd9c=</DigestValue></Reference></SignedInfo><SignatureValue>sMO4VaYvsV+INyeb7+q7ta0fVfWuYTa1VYm8hM2dhL2thXjKS4CYEVmkY1zZevvTHUbHojMNa2K4mv8VG/LHp32IW1KmR942F8ZXG5m5ELv3yxk5fFdpalaW0nj5q1/vz7TfJCe3x9T7lB8WcwlHOefmUYwWLy+auOqYgH+PIHA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>soNKhoNpEhq8alpjgQmZCuTqS+ijhr/+0uCdxYptfpMPMi2Nst8sNAgJlkEWNeuwyzbD7nLu8QBveMyJyQeFWbDUPVO7VF+4sFGobKlpfpOCcOQdF992DmLguJmOXiRRlAwaV8h/3h8WI25FN9we26wnmUXMHF4G24T1YUQ56ME=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQfl5j5i6+wKpJMSP0aK/MSTANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAVABPAE0ARQBSAC0AUABDAFwAVABvAG0AZQByMB4XDTE4MTExNzE4MzIyNloXDTE5MTExODAwMzIyNlowJzElMCMGA1UEAx4cAFQATwBNAEUAUgAtAFAAQwBcAFQAbwBtAGUAcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsoNKhoNpEhq8alpjgQmZCuTqS+ijhr/+0uCdxYptfpMPMi2Nst8sNAgJlkEWNeuwyzbD7nLu8QBveMyJyQeFWbDUPVO7VF+4sFGobKlpfpOCcOQdF992DmLguJmOXiRRlAwaV8h/3h8WI25FN9we26wnmUXMHF4G24T1YUQ56MECAwEAATANBgkqhkiG9w0BAQsFAAOBgQBvvsv0mVKIodAAv5BdfmLl035wfKhrctWXhW0xTWpJ9WP9ItFmTPaxw20V6VzgIiE5DmiQYp22csoWe6l5gxzLVef1yaoH5nNNJqqIpfUfVSN0HeuixY4szwVBSVjS/bTvDKOOiYscwfSo1ecSBNYM3XGJ+RtwXzeYqfNQ6Qfxlw==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

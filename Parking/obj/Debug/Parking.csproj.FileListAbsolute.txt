@@ -1,0 +1,21 @@
+c:\users\tomer\documents\visual studio 2013\Projects\Parking\Parking\bin\Debug\Parking.exe.config
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\ParkingLot.db
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\Parking.exe
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\Parking.pdb
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\Dapper.dll
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\System.Data.SQLite.dll
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\Dapper.xml
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\System.Data.SQLite.xml
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.Form1.resources
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.Properties.Resources.resources
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.csproj.GenerateResource.Cache
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.exe
+c:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.pdb
+C:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.csprojResolveAssemblyReference.cache
+C:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\Parking.exe.manifest
+C:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\bin\Debug\Parking.application
+C:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.exe.manifest
+C:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\Parking.application
+C:\Users\Tomer\Desktop\ParkingLot\VsFiles\Parking\Parking\bin\Debug\Parking.exe.config
+C:\Users\Tomer\Desktop\ParkingLot\VsFiles\Parking\Parking\obj\Debug\Parking.exe
+C:\Users\Tomer\Desktop\ParkingLot\VsFiles\Parking\Parking\obj\Debug\Parking.pdb
