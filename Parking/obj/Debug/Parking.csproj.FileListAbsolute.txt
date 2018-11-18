@@ -19,3 +19,6 @@ C:\Users\Tomer\Documents\Visual Studio 2013\Projects\Parking\Parking\obj\Debug\P
 C:\Users\Tomer\Desktop\ParkingLot\VsFiles\Parking\Parking\bin\Debug\Parking.exe.config
 C:\Users\Tomer\Desktop\ParkingLot\VsFiles\Parking\Parking\obj\Debug\Parking.exe
 C:\Users\Tomer\Desktop\ParkingLot\VsFiles\Parking\Parking\obj\Debug\Parking.pdb
+C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\bin\Debug\Parking.exe.config
+C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.exe
+C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.pdb

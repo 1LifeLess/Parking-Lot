@@ -125,14 +125,7 @@ namespace Parking
 
         private void btnParkId_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int.Parse(CarLeavesBox.Text);
-            }
-            catch
-            {
-                return;
-            }
+           
             lvParkId.Items.Clear();
             lvParkId.ForeColor = lvParkId.ForeColor ==Color.DodgerBlue ? Color.DarkOliveGreen : Color.DodgerBlue;
             var parkObj = parkingPlaceData.Where(x => x.ID == int.Parse(ParkId.Text)).ToList();
