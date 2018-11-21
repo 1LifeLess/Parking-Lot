@@ -117,7 +117,7 @@
             this.carId.Size = new System.Drawing.Size(129, 20);
             this.carId.TabIndex = 10;
             this.carId.Text = "Enter Car\'s Plate Number";
-            this.carId.Click += new System.EventHandler(this.emptyText);
+            this.carId.Click += new System.EventHandler(this.ClearText);
             // 
             // CarLeavesBox
             // 
@@ -126,7 +126,7 @@
             this.CarLeavesBox.Size = new System.Drawing.Size(129, 20);
             this.CarLeavesBox.TabIndex = 11;
             this.CarLeavesBox.Text = "Enter Car\'s Plate Number";
-            this.CarLeavesBox.Click += new System.EventHandler(this.emptyText);
+            this.CarLeavesBox.Click += new System.EventHandler(this.ClearText);
             // 
             // label1
             // 
@@ -167,7 +167,7 @@
             this.ParkId.Size = new System.Drawing.Size(121, 20);
             this.ParkId.TabIndex = 15;
             this.ParkId.Text = "Enter Parking ID (1-100)";
-            this.ParkId.Click += new System.EventHandler(this.emptyText);
+            this.ParkId.Click += new System.EventHandler(this.ClearText);
             // 
             // btnParkId
             // 

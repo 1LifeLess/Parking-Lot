@@ -61,33 +61,52 @@ namespace Parking
 
         private void CarIn_Click(object sender, EventArgs e)
         {
+             int userCarId = 0;
             try
             {
-                int.Parse(carId.Text);
+                userCarId = int.Parse(carId.Text);
             }
             catch
             {
                 return;
             }
-            var userDateTime = (dateTimePicker1.Value); //DD/MM/YYYY
-            var day = String.Format("{0:dd}/{0:MM}/{0:yyyy}", userDateTime);
-            int userCarId= int.Parse(carId.Text);
-            var duplicate = ParkingCarsData.Where(x => x.ParkingDate == day && userCarId == x.CarId).ToList();
-            if (duplicate.Count > 0)
+            //Check if the car is already at the parking lot
+            var alreadyExists =
+                ParkingCarsData.Where(x => x.CarId == userCarId && String.IsNullOrEmpty(x.DroveAwayDate) == true).ToList();
+
+            if (alreadyExists.Count > 0)
             {
-                MessageBox.Show(userCarId + " is already registered for that action for that date \r\n a combination of CarId and Date must be unique", "Error - Data isn't unique",
+                //var obj = alreadyExists[0]; 
+                MessageBox.Show(userCarId + " is already parking at the parking place: " + alreadyExists[0].ParkingPlaceId + ".", "Error - Invalid Action",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            var duplicate = ParkingCarsData.Any(x => x.ParkingDate == GetDay() && userCarId == x.CarId);
+
+            if (duplicate==true)
+            {
+                //var obj = alreadyExists[0]; 
+                MessageBox.Show("This car plate is already register for that date: a car can park only once per date.", "Error - Logic out of boundary",
+    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                   // .Select(x => x.ParkingPlaceId).Take(1);
+          
+            //int userCarId= int.Parse(carId.Text);
+            
+           
+            //Checks if carId has memberShip on Cars Table
             var res = SQLiteDataAccess.LoadCars();
             var isMember = res.Any(x => x.ID == userCarId && x.HasMembership == 1);
-            var isWinter = new[] { 12, 1, 2, 3 }.Contains(userDateTime.Month);
+
+            //checks if the month on the user date picker is one of winter's months
+            var isWinter = new[] { 12, 1, 2, 3 }.Contains(dateTimePicker1.Value.Month);
             var pay = isWinter == true || isMember == true ? 20 : 40;
            
            
-
-            var carEnters = new ParkingCarsModel(userCarId, pay, ParkingPlaceModel.nextAvailable(parkingPlaceData), day);
+            //Creates an obj row to insert to DB
+            var carEnters = new ParkingCarsModel(userCarId, pay, ParkingPlaceModel.nextAvailable(parkingPlaceData), GetDay());
             SQLiteDataAccess.EnterParkingLot(carEnters);
             UpdateView();  
         }
@@ -95,32 +114,51 @@ namespace Parking
         private void CarOut_Click(object sender, EventArgs e)
         {
             //var test = ParkingCarsData.Where(x => x.CarId == 123).ToList();
+            var CarId = 0;
             try
             {
-                int.Parse(CarLeavesBox.Text);
+                CarId = int.Parse(CarLeavesBox.Text);
             }
             catch
             {
                 return;
             }
-            var parkingid = ParkingCarsData.Where(x => x.CarId == int.Parse(CarLeavesBox.Text)).ToList();
-            if (parkingid.Count == 0)
+            var rows = ParkingCarsData.Where(x => x.CarId == CarId && String.IsNullOrEmpty(x.DroveAwayDate)==true).ToList();
+            if (rows.Count == 0)
             {
                 MessageBox.Show("There is no such a car in the Parking lot", "Error - Data doesn't exist",
     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            var placeId = parkingid[parkingid.Count-1].ParkingPlaceId;
-            SQLiteDataAccess.UpdateParkingOccupation(placeId,pAction.Free);
+                var inDate = DateTime.ParseExact(rows[0].ParkingDate, "dd/MM/yyyy",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+            if (inDate > dateTimePicker1.Value)
+            {
+                MessageBox.Show("A car can't leave on a date which is earlier than: " + inDate + ".", "Error - Invalid Action",
+   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+                
+            }
+           // var latestActivity = CarIdRows.Where(x => String.IsNullOrEmpty(x.DroveAwayDate) == true).ToList();
+
+            SQLiteDataAccess.LeaveParkingLot(rows[0].CarId, GetDay());
             UpdateView();
         }
 
       
-
-        public void emptyText(object sender, EventArgs e)
+        //Clear form TextBox placeHolders upon Click Event
+        public void ClearText(object sender, EventArgs e)
         {
             var txt = (TextBox) sender;
             txt.Text = "";
+        }
+
+        //Converts Date to DD/MM/YYYY text which is SQLite date convention and type   
+        public string GetDay()
+        {
+            var userDateTime = (dateTimePicker1.Value); //DD/MM/YYYY
+            var day = String.Format("{0:dd}/{0:MM}/{0:yyyy}", userDateTime);
+            return day;
         }
 
         private void btnParkId_Click(object sender, EventArgs e)

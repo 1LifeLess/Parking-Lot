@@ -53,7 +53,7 @@ namespace Parking
             {
                 var res =
                     cnn.Execute(
-                        @"INSERT INTO ParkingCars(ParkingDate,CarId,PaymentAmount,ParkingPlaceId) VALUES (@date,@CarId,@PaymentAmount,@ParkingPlaceId)",car);
+                        @"INSERT INTO ParkingCars(ParkingDate,CarId,PaymentAmount,ParkingPlaceId,DroveAwayDate) VALUES (@ParkingDate,@CarId,@PaymentAmount,@ParkingPlaceId,@DroveAwayDate)", car);
 
 
             }
@@ -61,14 +61,14 @@ namespace Parking
         }
 
 
-        public static void LeaveParkingLot(int CarId, string ParkingDate,string LeaveDate)
+        public static void LeaveParkingLot(int CarId,string LeaveDate)
         {
 
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var res = cnn.Execute(@"UPDATE ParkingCars
                                         SET DroveAwayDate = @leave
-                                        WHERE CarId = @CarPlate AND ParkingDate = @inDate", new{CarPlate=CarId, inDate=ParkingDate,leave = LeaveDate});
+                                        WHERE CarId = @CarPlate AND DroveAwayDate IS NULL", new{CarPlate=CarId, leave = LeaveDate});
 
 
             }
