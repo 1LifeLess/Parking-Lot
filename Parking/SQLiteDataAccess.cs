@@ -18,7 +18,7 @@ namespace Parking
            
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var res = cnn.Query("select * from ParkingCars", new DynamicParameters()).Select(row => new ParkingCarsModel((int)row.CarId,(int)row.PaymentAmount,(int)row.ParkingPlaceId,row.ParkingDate)).ToList();
+                var res = cnn.Query("select * from ParkingCars", new DynamicParameters()).Select(row => new ParkingCarsModel((int)row.CarId,(int)row.PaymentAmount,(int)row.ParkingPlaceId,row.ParkingDate,row.DroveAwayDate)).ToList();
                 return res;
 
             }  
@@ -57,18 +57,18 @@ namespace Parking
 
 
             }
-            UpdateParkingOccupation(car.ParkingPlaceId, Parking.Form1.pAction.Take);
+           
         }
 
 
-        public static void UpdateParkingOccupation(int parkingId, Parking.Form1.pAction A)
+        public static void LeaveParkingLot(int CarId, string ParkingDate,string LeaveDate)
         {
 
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var res = cnn.Execute(@"UPDATE ParkingPlace 
-                                        SET isEmpty = @A
-                                        WHERE ID = @Id", new{id=parkingId,A=(int)A});
+                var res = cnn.Execute(@"UPDATE ParkingCars
+                                        SET DroveAwayDate = @leave
+                                        WHERE CarId = @CarPlate AND ParkingDate = @inDate", new{CarPlate=CarId, inDate=ParkingDate,leave = LeaveDate});
 
 
             }
