@@ -31,7 +31,6 @@ C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\bin\Debug\Dapper.dll
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\bin\Debug\System.Data.SQLite.dll
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\bin\Debug\Dapper.xml
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\bin\Debug\System.Data.SQLite.xml
-C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.csprojResolveAssemblyReference.cache
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.Form1.resources
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.Properties.Resources.resources
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.csproj.GenerateResource.Cache

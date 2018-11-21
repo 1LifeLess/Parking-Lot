@@ -72,7 +72,7 @@ namespace Parking
             var userDateTime = (dateTimePicker1.Value); //DD/MM/YYYY
             var day = String.Format("{0:dd}/{0:MM}/{0:yyyy}", userDateTime);
             int userCarId= int.Parse(carId.Text);
-           var duplicate = ParkingCarsData.Where(x => x.date == day && userCarId == x.CarId).ToList();
+            var duplicate = ParkingCarsData.Where(x => x.ParkingDate == day && userCarId == x.CarId).ToList();
             if (duplicate.Count > 0)
             {
                 MessageBox.Show(userCarId + " is already registered for that action for that date \r\n a combination of CarId and Date must be unique", "Error - Data isn't unique",
