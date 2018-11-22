@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using System.Data.SQLite;
 
 namespace Parking
 {
@@ -73,7 +74,7 @@ namespace Parking
 
             }
         }
-        public static void AffectAll(int isEmpty)
+       /* public static void AffectAll(int isEmpty)
         {
 
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -83,14 +84,14 @@ namespace Parking
 
 
             }
-        }
+        }*/
         public static void Reset()
         {
 
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var res = cnn.Execute("DELETE FROM ParkingCars;");
-
+                var res2 = cnn.Execute("UPDATE ParkingPlace set isEmpty=1;");
 
             }
         }

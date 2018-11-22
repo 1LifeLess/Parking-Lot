@@ -206,7 +206,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(102, 23);
             this.btnReset.TabIndex = 18;
-            this.btnReset.Text = "Reset Revenue";
+            this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
