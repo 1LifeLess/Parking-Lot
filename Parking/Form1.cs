@@ -24,20 +24,13 @@ namespace Parking
         }
 
     
-
+        //Data table as list of rows, access for everyone
         public static List<ParkingPlaceModel> parkingPlaceData;
         public static List<ParkingCarsModel> ParkingCarsData;
-        public   enum pAction
-        {
-           
-            Take=0,
-         Free=1
-        }
-        
+       
+       // load dynamic data and update the view 
         public void UpdateView()
         {
-
-     
            parkingPlaceData = SQLiteDataAccess.LoadParkingPlace();
            ParkingCarsData = SQLiteDataAccess.LoadParkingCars();
             dataGridView1.Rows[0].Cells[1].Value = ParkingPlaceModel.nextAvailable(parkingPlaceData);
@@ -58,8 +51,13 @@ namespace Parking
                 label1.Text = "Parking Lot is Empty";
                 label1.ForeColor = Color.DarkGreen;
             }
+            else
+            {
+                label1.Visible = false;
+            }
         }
 
+        //when a car enters the parking lot
         private void CarIn_Click(object sender, EventArgs e)
         {
             int userCarId;
@@ -70,7 +68,7 @@ namespace Parking
             }
             if (userCarId < 101 && userCarId>0)
             {
-                Error("Invalid input, Input must be positive and above the number 100 (1-100 is preserved for test cases)", "Wrong input range");
+                Error("Invalid input, Input must be positive and above the number 100 (1-100 are preserved for test cases)", "Wrong input range");
                 return;
             }
             //Check if the car is already at the parking lot
@@ -81,8 +79,9 @@ namespace Parking
             {
                 Error(userCarId + " is already parking at the parking place: " + alreadyExists[0].ParkingPlaceId + ".",
                     "Error - Invalid Action");
-               }
-
+                return;
+            }
+            //check if the car is registered for that date
             var duplicate = ParkingCarsData.Any(x => x.ParkingDate == GetDay() && userCarId == x.CarId);
 
             if (duplicate==true)
@@ -92,7 +91,13 @@ namespace Parking
                     "Error - Logic out of boundary");
                 return;
             }
-            
+            // if parking lot is full exit the function
+            if (ParkingPlaceModel.nextAvailable(parkingPlaceData) == -1)
+            {
+               Error("Parking lot is full.",
+                    "Error - Parking-Lot is full");
+                return;
+            }
             //Checks if carId has memberShip on Cars Table
             var res = SQLiteDataAccess.LoadCars();
             var isMember = res.Any(x => x.ID == userCarId && x.HasMembership == 1);
@@ -108,6 +113,7 @@ namespace Parking
             UpdateView();  
         }
 
+        //when a car leaves the parking lot
         private void CarOut_Click(object sender, EventArgs e)
         {
             int CarId;
@@ -127,25 +133,27 @@ namespace Parking
                                        System.Globalization.CultureInfo.InvariantCulture);
             if (inDate > dateTimePicker1.Value)
             {
-                Error("A car can't leave on a date which is earlier than: " + inDate + ".", "Invalid Action");
+                Error("This car can't leave on a date which is earlier than: " + inDate + ".", "Invalid Action");
                 return;
             }
             SQLiteDataAccess.LeaveParkingLot(rows[0].CarId, GetDay());
             UpdateView();
         }
       
+        //search parking lot by id
         private void btnParkId_Click(object sender, EventArgs e)
         {
            
             lvParkId.Items.Clear();
-            lvParkId.ForeColor = lvParkId.ForeColor ==Color.DodgerBlue ? Color.DarkOliveGreen : Color.DodgerBlue;
+            lvParkId.ForeColor = lvParkId.ForeColor ==Color.DodgerBlue ? Color.DarkOliveGreen : Color.DodgerBlue; //to help the user see a change
             int ParkingId;
-            if (!Int32.TryParse(ParkId.Text, out ParkingId))
+            Int32.TryParse(ParkId.Text, out ParkingId);
+            if (ParkingId <= 0 || ParkingId>100)
             {
-                Error("Invalid input, Please enter a positive number", "Wrong input range");
+                Error("Invalid input, Please enter a positive number between 1 to 100", "Wrong input range");
                 return;
             }
-           
+           //translate DB values to meaningful strings and update ListView
             var parkObj = parkingPlaceData.Where(x => x.ID == ParkingId).ToList();
             var status = parkObj[0].IsEmpty==1 ? "Free" : "Occupied";
             var floor = parkObj[0].Floor.ToString();
@@ -155,7 +163,7 @@ namespace Parking
             lvParkId.Items.Add(listViewItem);
        
         }
-
+        //Test case, delete all record and insert new records 1-100 on fixed price
         private void btnFill_Click(object sender, EventArgs e)
         {
 
@@ -174,7 +182,7 @@ namespace Parking
             }
             UpdateView();
         }
-
+        // register a DroveAwayDate for each car, (the date will match the enter date of each car)
         private void btnClear_Click(object sender, EventArgs e)
         {
             var list = ParkingCarsData.Where(x => String.IsNullOrEmpty(x.DroveAwayDate) == true).ToList();
@@ -185,6 +193,7 @@ namespace Parking
             UpdateView();
         }
 
+        //Delete all ParkingCars rows on DB
         private void btnReset_Click(object sender, EventArgs e)
         {
             SQLiteDataAccess.Reset();
@@ -194,20 +203,7 @@ namespace Parking
         #region Public Functions
 
 
-        public int TryParse(string txt)
-        {
-            try
-            {
-                return int.Parse(txt);
-            }
-            catch (Exception ex)
-            {
-                Error(ex.ToString(), "Wrong Input Fromat");
-               // throw ex;
-            }
-            return -1;
-        }
-
+       
         //Clear form TextBox placeHolders upon Click Event
         public void ClearText(object sender, EventArgs e)
         {

@@ -31,18 +31,15 @@ namespace Parking
 
         public static int TotalRevenue(List<ParkingCarsModel> list)
         {
-              
-           var res = list.Sum(x => x.PaymentAmount);
+          var res = list.Sum(x => x.PaymentAmount);
            return res;
-            
-        }
+          }
 
         public static int Last30Days(List<ParkingCarsModel> list)
         {
             var test = list.Select(x => x.ParkingDate).ToList();
             var res = list.Where(x => DateTime.ParseExact(x.ParkingDate, "dd/MM/yyyy", CultureInfo.InvariantCulture) >= DateTime.Today.AddDays(-30)).Sum(x => x.PaymentAmount);
-          // var test = DateTime.ParseExact(x.date, "dd/MM/yy", CultureInfo.InvariantCulture);
-            return res;
+        return res;
 
         }
 
