@@ -36,4 +36,3 @@ C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.Properties
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.csproj.GenerateResource.Cache
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.exe.manifest
 C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.application
-C:\Users\Tomer\Documents\GitHub\Parking-Lot\Parking\obj\Debug\Parking.csprojResolveAssemblyReference.cache
